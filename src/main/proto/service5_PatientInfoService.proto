@@ -1,0 +1,31 @@
+syntax = "proto3";
+package nom.nci;
+
+option java_multiple_files = true;
+option java_package = "ds.service5";
+option java_outer_classname = "Service5Impl";
+
+// Service5 PatientInfoService
+service PatientInfoService {
+    rpc getPatientInfo(PatientRequest) returns (PatientResponse);
+    rpc callNurse(NurseRequest) returns (NurseResponse);
+}
+
+message PatientRequest {
+    int32 patientId = 1;
+}
+
+message PatientResponse {
+    string fullName = 1;
+    string gp = 2;
+    string treatmentInfo = 3;
+}
+
+message NurseRequest {
+    int32 roomNumber = 1;
+    int32 patientId = 2;
+}
+
+message NurseResponse {
+    string message = 1;
+}

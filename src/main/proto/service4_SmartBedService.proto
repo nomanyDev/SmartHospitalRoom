@@ -1,0 +1,26 @@
+syntax = "proto3";
+package nom.nci;
+
+option java_multiple_files = true;
+option java_package = "ds.service4";
+option java_outer_classname = "Service4Impl";
+
+// Service4 SmartBedService
+service SmartBedService {
+    rpc setPosition(PositionRequest) returns (BedResponse);
+    rpc statusInfo(stream StatusRequest) returns (stream StatusResponse); //Bidirectional streaming
+}
+
+message PositionRequest {
+    int32 angle = 1;
+}
+
+message BedResponse {
+    string message = 1;
+}
+
+message StatusRequest {}
+
+message StatusResponse {
+    string status = 1;
+}

@@ -1,0 +1,31 @@
+syntax = "proto3";
+package nom.nci;
+
+option java_multiple_files = true;
+option java_package = "ds.service1";
+option java_outer_classname = "Service1Impl";
+
+// Service1 SmartTVService
+service SmartTVService {
+    rpc turnOn(TVRequest) returns (TVResponse);
+    rpc turnOff(TVRequest) returns (TVResponse);
+    rpc setVolume(VolumeRequest) returns (TVResponse);
+    rpc chnlUp(ChannelRequest) returns (TVResponse);
+    rpc chnlDown(ChannelRequest) returns (TVResponse);
+}
+// Messages for SmartTVService
+message TVRequest {
+    string status = 1;
+}
+
+message TVResponse {
+    string message = 1;
+}
+
+message VolumeRequest {
+    int32 volume = 1;
+}
+
+message ChannelRequest {
+    int32 channel = 1;
+}

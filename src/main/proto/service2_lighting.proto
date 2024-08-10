@@ -1,0 +1,28 @@
+syntax = "proto3";
+package nom.nci;
+
+option java_multiple_files = true;
+option java_package = "ds.service2";
+option java_outer_classname = "Service2Impl";
+
+// Service2 LightingService
+service LightingService {
+    rpc turnOn(LightRequest) returns (LightResponse);
+    rpc turnOff(LightRequest) returns (LightResponse);
+    rpc setLightLvl(LightLevelRequest) returns (LightResponse);
+    rpc motionDetect(MotionRequest) returns (stream LightResponse); // Server-side streaming RPC
+}
+// Messages for LightingService
+message LightRequest {
+    string status = 1;
+}
+
+message LightResponse {
+    string message = 1;
+}
+
+message LightLevelRequest {
+    int32 level = 1;
+}
+
+message MotionRequest {}
