@@ -17,17 +17,17 @@ public class ServiceRegistration {
             System.out.println("Registration: InetAddress.getLocalHost():" + InetAddress.getLocalHost());
 
             // Register Service 1
-            ServiceInfo service1 = ServiceInfo.create("_smartbed._tcp.local.", "SmartBedService", 50054, "Smart Bed Service");
+            ServiceInfo service1 = ServiceInfo.create("_smartbed._tcp.local.", "SmartBedService", 8001, "Smart Bed Service");
             jmdns.registerService(service1);
             System.out.println("Registered Smart Bed Service");
 
             // Register Service 2
-            ServiceInfo service2 = ServiceInfo.create("_temperaturecontrol._tcp.local.", "TemperatureControlService", 50053, "Temperature Control Service");
+            ServiceInfo service2 = ServiceInfo.create("_temperaturecontrol._tcp.local.", "TemperatureControlService", 8088, "Temperature Control Service");
             jmdns.registerService(service2);
             System.out.println("Registered Temperature Control Service");
 
             // Register Service 3
-            ServiceInfo service3 = ServiceInfo.create("_lighting._tcp.local.", "LightingService", 50052, "Lighting Control Service");
+            ServiceInfo service3 = ServiceInfo.create("_lighting._tcp.local.", "LightingService", 8000, "Lighting Control Service");
             jmdns.registerService(service3);
             System.out.println("Registered Lighting Service");
 
